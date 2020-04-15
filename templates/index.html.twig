@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backlight</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <style>
+        .outer-div {
+            margin-top: 12%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #555555;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .inner-div {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+<div class="outer-div">
+    <form action="{{ url('app_set_rgb') }}" method="post">
+        <div class="inner-div">
+            <div>
+                <label for="favcolor">
+                    <p style="font-family:georgia,garamond,serif; font-size:28px;">
+                        Выберите цвет подсветки:
+                    </p>
+                </label>
+                <input type="color" id="favcolor" name="favcolor" value="#ff0000" style="width: 80%;">
+                <br><br>
+            </div>
+            <p></p>
+            <input type="submit" value="Применить" class="button" style="font-family:georgia,garamond,serif;">
+        </div>
+    </form>
+</div>
+</body>
+</html>
