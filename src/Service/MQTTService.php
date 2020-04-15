@@ -22,11 +22,11 @@ class MQTTService
     const PORT  = 1883;
 
     /**
-     * @param array $color
+     * @param array $data
      *
      * @return array
      */
-    public static function sendToRaspberry(array $color = [])
+    public static function sendToRaspberry(array $data = [])
     {
         $result  = false;
         $message = 'Error';
@@ -50,7 +50,7 @@ class MQTTService
 
                 $publish->setMessage(
                     new Message(
-                        json_encode($color),
+                        json_encode($data),
                         new TopicName(self::TOPIC)
                     )
                 );

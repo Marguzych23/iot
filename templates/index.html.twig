@@ -46,6 +46,18 @@
             <input type="submit" value="Применить" class="button" style="font-family:georgia,garamond,serif;">
         </div>
     </form>
+
+    <form action="{{ url('app_on_off') }}?on_off=1" method="post">
+        <div class="inner-div">
+            <input type="submit" value="Включить" class="button" style="font-family:georgia,garamond,serif;">
+        </div>
+    </form>
+
+    <form action="{{ url('app_on_off') }}?on_off=0" method="post">
+        <div class="inner-div">
+            <input type="submit" value="Выключить" class="button" style="font-family:georgia,garamond,serif;">
+        </div>
+    </form>
 </div>
 </body>
 </html>

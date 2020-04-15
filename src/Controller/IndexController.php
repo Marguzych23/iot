@@ -39,10 +39,33 @@ class IndexController extends AbstractController
         $color = $request->get('favcolor', '#1837e7');
 
 
-        [$result, $message] = MQTTService::sendToRaspberry(DataService::hex2rgb($color));
-        return $this->json([
-            'status'  => $result,
-            'message' => $message,
-        ]);
+        [$result, $message] = MQTTService::sendToRaspberry(['color' => DataService::hex2rgb($color)]);
+
+        return $this->redirect('app_index');
+//        return $this->json([
+//            'status'  => $result,
+//            'message' => $message,
+//        ]);
+    }
+
+    /**
+     * @Route("/on_off", name="app_on_off")
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function onOff(
+        Request $request
+    ) : Response {
+        $state = (bool) $request->get('on_off', 0);
+
+        [$result, $message] = MQTTService::sendToRaspberry(['state' => $state]);
+
+        return $this->redirect('app_index');
+//        return $this->json([
+//            'status'  => $result,
+//            'message' => $message,
+//        ]);
     }
 }

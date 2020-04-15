@@ -10,4 +10,4 @@
 ###< symfony/framework-bundle ###
 
 .idea
-composer.lock
+/composer.lock
